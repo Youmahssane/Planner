@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './home/home.component';
+import { AuthComponent } from './auth/auth.component';
+import { InscComponent } from './insc/insc.component';
 
-export const routes: Routes = [{
-  path: 'Home', component: HomeComponent,
-}
+
+export const routes: Routes = [
+  {path: 'Auth', component: AuthComponent},
+  {path: 'Insc', component: InscComponent}
 ];
 
 @NgModule({
