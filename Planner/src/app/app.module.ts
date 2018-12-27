@@ -10,6 +10,8 @@ import { RouterModule } from '@angular/router';
 import { AuthComponent } from './auth/auth.component';
 import { InscComponent } from './insc/insc.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { AcceuilComponent } from './acceuil/acceuil.component';
 
 
 
@@ -18,6 +20,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     AppComponent,
     AuthComponent,
     InscComponent,
+    AcceuilComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,6 +30,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     NbSidebarModule,
     ReactiveFormsModule,
     FormsModule,
+    HttpClientModule,
     NbThemeModule.forRoot({ name: 'default' }),
     NbLayoutModule
   ],

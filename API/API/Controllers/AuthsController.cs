@@ -25,9 +25,11 @@ namespace API.Controllers
 
         // GET: api/Auths/5
         [ResponseType(typeof(Auth))]
-        public async Task<IHttpActionResult> GetAuth(int id)
+           public async Task<IHttpActionResult> GetAuth(string userName)
         {
-            Auth auth = await db.Auths.FindAsync(id);
+        
+            Auth auth= await  db.Auths.FirstOrDefaultAsync(i => i.userName == userName);
+       
             if (auth == null)
             {
                 return NotFound();
