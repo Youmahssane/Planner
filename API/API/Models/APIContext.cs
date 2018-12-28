@@ -17,6 +17,7 @@ namespace API.Models
     
         public APIContext() : base("name=APIContext")
         {
+            
         }
 
         public System.Data.Entity.DbSet<API.Models.Auth> Auths { get; set; }
