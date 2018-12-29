@@ -13,45 +13,44 @@ using API.Models;
 
 namespace API.Controllers
 {
-    public class AuthsController : ApiController
+    public class FliesController : ApiController
     {
         private APIContext db = new APIContext();
 
-        // GET: api/Auths
-        public IQueryable<Auth> GetAuths()
+        // GET: api/Flies
+        public IQueryable<Fly> GetFlies()
         {
-            return db.Auths;
+            return db.Flies;
         }
 
-        // GET: api/Auths/5
-        [ResponseType(typeof(Auth))]
-        public async Task<IHttpActionResult> GetAuth(string userName)
+        // GET: api/Flies/5
+        [ResponseType(typeof(Fly))]
+        public async Task<IHttpActionResult> GetFly(int id)
         {
-            Auth auth = await db.Auths.FirstOrDefaultAsync(i => i.userName == userName);
-
-            if (auth == null)
+            Fly fly = await db.Flies.FindAsync(id);
+            if (fly == null)
             {
                 return NotFound();
             }
 
-            return Ok(auth);
+            return Ok(fly);
         }
 
-        // PUT: api/Auths/5
+        // PUT: api/Flies/5
         [ResponseType(typeof(void))]
-        public async Task<IHttpActionResult> PutAuth(int id, Auth auth)
+        public async Task<IHttpActionResult> PutFly(int id, Fly fly)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != auth.Id)
+            if (id != fly.Id)
             {
                 return BadRequest();
             }
 
-            db.Entry(auth).State = EntityState.Modified;
+            db.Entry(fly).State = EntityState.Modified;
 
             try
             {
@@ -59,7 +58,7 @@ namespace API.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!AuthExists(id))
+                if (!FlyExists(id))
                 {
                     return NotFound();
                 }
@@ -72,35 +71,35 @@ namespace API.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Auths
-        [ResponseType(typeof(Auth))]
-        public async Task<IHttpActionResult> PostAuth(Auth auth)
+        // POST: api/Flies
+        [ResponseType(typeof(Fly))]
+        public async Task<IHttpActionResult> PostFly(Fly fly)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Auths.Add(auth);
+            db.Flies.Add(fly);
             await db.SaveChangesAsync();
 
-            return CreatedAtRoute("DefaultApi", new { id = auth.Id }, auth);
+            return CreatedAtRoute("DefaultApi", new { id = fly.Id }, fly);
         }
 
-        // DELETE: api/Auths/5
-        [ResponseType(typeof(Auth))]
-        public async Task<IHttpActionResult> DeleteAuth(int id)
+        // DELETE: api/Flies/5
+        [ResponseType(typeof(Fly))]
+        public async Task<IHttpActionResult> DeleteFly(int id)
         {
-            Auth auth = await db.Auths.FindAsync(id);
-            if (auth == null)
+            Fly fly = await db.Flies.FindAsync(id);
+            if (fly == null)
             {
                 return NotFound();
             }
 
-            db.Auths.Remove(auth);
+            db.Flies.Remove(fly);
             await db.SaveChangesAsync();
 
-            return Ok(auth);
+            return Ok(fly);
         }
 
         protected override void Dispose(bool disposing)
@@ -112,9 +111,9 @@ namespace API.Controllers
             base.Dispose(disposing);
         }
 
-        private bool AuthExists(int id)
+        private bool FlyExists(int id)
         {
-            return db.Auths.Count(e => e.Id == id) > 0;
+            return db.Flies.Count(e => e.Id == id) > 0;
         }
     }
 }

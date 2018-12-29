@@ -21,5 +21,7 @@ namespace API.Models
         }
 
         public System.Data.Entity.DbSet<API.Models.Auth> Auths { get; set; }
+
+        public System.Data.Entity.DbSet<API.Models.Fly> Flies { get; set; }
     }
 }
