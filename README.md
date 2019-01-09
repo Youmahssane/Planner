@@ -19,10 +19,12 @@ in the backend-end for the token you need to install :
 
 on the file Planner install module and signalr and jquery :
 - npm i
+
+if(need){
 - npm i @aspnet/signalr 
 - npm jquery
 - npm i @types/jquery 
-
+}
 
 To launch the application, if i don't work directly, you must configure the backend in order to be able to connect to
 apply it with the link http://localhost:51266/.
