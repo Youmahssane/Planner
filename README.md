@@ -14,10 +14,8 @@ The application consists of
  - ...
 
 in the backend-end for the token you need to install :
-- Microsoft.IdentityModel.JsonWebTokens 
-- Microsoft.IdentityModel.Tokens
-- System.IdentityModel.Tokens.Jwt
-- Microsoft.AspNet.SignalR
+- Install-Package System.IdentityModel.Tokens.Jwt
+-  Install-Package Microsoft.AspNet.SignalR
 
 on the file Planner install module and signalr and jquery :
 - npm i
