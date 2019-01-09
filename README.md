@@ -13,9 +13,6 @@ The application consists of
  - flight management with real-time progress bar and status
  - 
 
-I created a github (it's not up to date yet but I will): https://github.com/Youmahssane/Planner
-
-
 
 
 To launch the application, if i don't work directly, you must configure the backend in order to be able to connect to
