@@ -13,6 +13,17 @@ The application consists of
  - flight management with real-time progress bar and status
  - 
 
+in the backend-end for the token you need to install :
+-Microsoft.IdentityModel.JsonWebTokens 
+-Microsoft.IdentityModel.Tokens
+-System.IdentityModel.Tokens.Jwt
+-Microsoft.AspNet.SignalR
+
+on the file Planner install module and signalr and jquery :
+-npm i
+-npm i @aspnet/signalr 
+-npm jquery
+-npm i @types/jquery 
 
 
 To launch the application, if i don't work directly, you must configure the backend in order to be able to connect to
