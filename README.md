@@ -21,4 +21,4 @@ I created a github (it's not up to date yet but I will): https://github.com/Youm
 To launch the application, if i don't work directly, you must configure the backend in order to be able to connect to
 apply it with the link http://localhost:51266/.
 
-Translated with www.DeepL.com/Translator
+
