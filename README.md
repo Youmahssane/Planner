@@ -6,11 +6,12 @@ Application Web/
 I use asp.net and entity framework for my API in the back end and angular + jquery for the front.
 As well as Nebular (an angular framework).
 
-The application consists of - a token authentication
-			 - of a crud wear and tear and theft 
-			 - role management
-  			 - flight management with real-time progress bar and status
-			 - 
+The application consists of 
+- a token authentication
+ - of a crud wear and tear and theft
+ - role management
+ - flight management with real-time progress bar and status
+ - 
 
 I created a github (it's not up to date yet but I will): https://github.com/Youmahssane/Planner
 
