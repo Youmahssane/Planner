@@ -20,5 +20,11 @@ namespace API.Models
         }
 
         public System.Data.Entity.DbSet<API.Models.Auth> Auths { get; set; }
+
+        public System.Data.Entity.DbSet<API.Models.Vol> Vols { get; set; }
+
+        public System.Data.Entity.DbSet<API.Models.InfoSup> InfoSups { get; set; }
+
+        public System.Data.Entity.DbSet<API.Models.Register> Registers { get; set; }
     }
 }

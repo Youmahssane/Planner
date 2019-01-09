@@ -1,0 +1,64 @@
+
+
+<nb-layout>
+    <nb-layout-header>
+      
+     <div class="navbar-brand">
+      <a routerLink="/Home">    
+         <img  class="d-block" src=".\assets\logo.svg" height="70px" >
+     </a>
+    </div>
+     <div class="navbar navbar-expand " style="position:relative; width:200%;" >
+        
+        <div class="collapse navbar-collapse">
+
+            <ul class="navbar-nav">
+              <li class="nav-item active">
+                <a class="nav-link" routerLink="/Home">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" routerLink="/Acceuil/acceuil" href="#">Vol</a>
+              </li>
+              
+              <li *ngIf="role.toString() === '1'" class="nav-item active">
+                <a class="nav-link" routerLink="/cruduser" href="#">Management users </a>
+              </li>
+              <li class="nav-item active" style="position:relative; size:150px;">
+                  <a class="nav-link" href="#">About Us</a>
+                </li>
+            </ul>
+          </div>
+              <nav class=".navbar-brand "style=" position:absolute; left: 91% " *ngIf="mytoken; else  content" >
+                        <nb-user name={{userName}} ></nb-user> 
+              </nav>
+                  <ng-template #content> 
+                  <nav class=".navbar-brand " style="position:absolute; left:83%;  background-color: #eefaff;" > 
+
+                      <ul class="navbar-nav" >
+                          <li class="nav-item active" >
+                              <a class="nav-link " style="cursor: pointer;"   (click)="toConect()">Connexion <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" style="cursor: pointer;" (click)="toInsc()">Inscription <span class="sr-only">(current)</span></a>
+                              </li>
+                     </ul>
+                    
+                  </nav>
+            </ng-template>
+           
+          
+  
+                  
+        </div>
+
+    </nb-layout-header>
+   
+
+   
+   
+      <nb-layout-column> 
+    
+      <router-outlet></router-outlet></nb-layout-column>
+       <nb-layout-footer>Contact us</nb-layout-footer>
+  
+  </nb-layout>

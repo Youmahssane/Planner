@@ -1,0 +1,92 @@
+
+ 
+  <div *ngIf="ifExist; else correctVol">
+      <div ><label><h2>Information à propos du vol :</h2></label></div> 
+
+    <nb-card>
+        <nb-card-body>
+        
+
+        <form [formGroup]="modifierForm" >
+            <div class="form-group">
+              <label >Vol :</label>
+              <input type="text" class="form-control" formControlName="vol" id="vol" placeholder="{{this.vol[0].vol}}">
+            </div>
+            <div class="form-group">
+              <label>Départ :</label>
+              <input type="text" class="form-control" formControlName="departure" id="departure" placeholder="{{this.vol[0].departure}}">
+            </div>
+            <div class="form-group">
+                <label >Arrivé :</label>
+                <input type="text" class="form-control" formControlName="arrival" id="arrival" placeholder="{{this.vol[0].arrival}}">
+              </div>
+              <div class="form-group">
+                  <label >Altitude :</label>
+                  <input type="text" class="form-control" formControlName="altitude" id="altitude" placeholder="{{this.vol[0].altitude}}">
+                </div>
+                <div class="form-group">
+                    <label>Heure d'arrivé : </label>
+                    <input type="Time" class="form-control" formControlName="heureArr" id="altitude" placeholder="{{this.vol[0].heureArr}}">
+                  </div>
+                  <div class="form-group">
+                      <label >Heure de départ :</label>
+                      <input type="Time" class="form-control" formControlName="heureDepart" id="altitude" placeholder="{{this.vol[0].heureDepart}}">
+                    </div>
+                <button type="submit" (click)="onSubmitVol()" class="btn btn-primary">Modifier</button>
+              </form>
+
+</nb-card-body>
+</nb-card>
+
+
+
+  <div ><label><h2>Information à propos de l'avion :</h2></label></div> 
+
+
+  <nb-card>
+      <nb-card-body>
+          <form  [formGroup]="modifierFormSub">
+              <div class="form-group1">
+                <label >transporteur :</label>
+                <input type="text" class="form-control" formControlName="transporteur" id="transporteur" placeholder="{{this.infoSub[0].transporteur}}">
+              </div>
+              <div class="form-group1">
+                <label>typeAvion :</label>
+                <input type="text" class="form-control"  formControlName="typeAvion" id="typeAvion" placeholder="{{this.infoSub[0].typeAvion}}">
+              </div>
+              <div class="form-group1">
+                  <label >vitesse :</label>
+                  <input type="text" class="form-control" formControlName="vitesse" id="vitesse" placeholder="{{this.infoSub[0].vitesse}}">
+                </div>
+                <div class="form-group1">
+                    <label >pisteDecolage :</label>
+                    <input type="text" class="form-control"  formControlName="pisteDecolage" id="pd" placeholder="{{this.infoSub[0].pisteDecolage}}">
+                  </div>
+                  <div class="form-group1">
+                      <label >destination :</label>
+                      <input type="text" class="form-control" formControlName="destination" id="dst" placeholder="{{this.infoSub[0].destination}}">
+                    </div>
+                  <div class="form-group1">
+                      <label >orientation :</label>
+                      <input type="text" class="form-control" formControlName="orientation" id="orientation" placeholder="{{this.infoSub[0].orientation}}">
+                    </div>
+                    <div class="form-group1">
+                        <label >distance :</label>
+                        <input type="text" class="form-control" formControlName="distance" id="distance" placeholder="{{this.infoSub[0].distance}}">
+                      </div>
+         </form>
+</nb-card-body></nb-card>
+   
+        <button type="submit" (click)="onSubmitSub()" class="btn btn-primary">Modifier</button>
+     
+
+
+
+
+
+</div>
+<ng-template #correctVol>
+ <div>
+   <a routerLink="../acceuil">Choisir un vol a modifié </a>
+ </div>
+  </ng-template>

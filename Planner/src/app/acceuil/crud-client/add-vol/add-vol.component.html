@@ -1,0 +1,63 @@
+<label><h1> Ajoutez un Vol</h1></label>
+<nb-card><nb-card-body>
+<form [formGroup]="formVol">
+    <div class="form-group">
+        <label >Vol :</label>
+        <input type="text" class="form-control" formControlName="vol" id="vol">
+      </div>
+      <div class="form-group">
+        <label>Départ :</label>
+        <input type="text" class="form-control" formControlName="departure" id="departure" >
+      </div>
+      <div class="form-group">
+          <label >Arrivé :</label>
+          <input type="text" class="form-control" formControlName="arrival" id="arrival">
+        </div>
+        <div class="form-group">
+            <label >Altitude :</label>
+            <input type="text" class="form-control" formControlName="altitude" id="altitude" >
+          </div>
+          <div class="form-group">
+              <label >Heure départ :</label>
+              <input type="Time" class="form-control" formControlName="heureD" id="altitude" >
+            </div>
+            <div class="form-group">
+                <label >Heure Arrive :</label>
+                <input type="Time" class="form-control" formControlName="heureA" id="altitude" >
+              </div>
+<hr>  
+        
+    <div class="form-group1">
+      <label >transporteur :</label>
+      <input type="text" class="form-control" formControlName="transporteur" id="transporteur" >
+    </div>
+    <div class="form-group1">
+      <label>typeAvion :</label>
+      <input type="text" class="form-control"  formControlName="typeAvion" id="typeAvion" >
+    </div>
+    <div class="form-group1">
+        <label >vitesse :</label>
+        <input type="text" class="form-control" formControlName="vitesse" id="vitesse" >
+      </div>
+      <div class="form-group1">
+          <label >pisteDecolage :</label>
+          <input type="text" class="form-control"  formControlName="pisteDecolage" id="pd" >
+        </div>
+        <div class="form-group1">
+            <label >destination :</label>
+            <input type="text" class="form-control" formControlName="destination" id="dst">
+          </div>
+        <div class="form-group1">
+            <label >orientation :</label>
+            <input type="text" class="form-control" formControlName="orientation" id="orientation" >
+          </div>
+          <div class="form-group1">
+              <label >distance :</label>
+              <input type="text" class="form-control" formControlName="distance" id="distance" >
+            </div>
+<hr>
+
+          <button type="submit" (click)="onSubmit()" class="btn btn-primary">ajouter</button>
+ </form>
+
+        </nb-card-body></nb-card>
