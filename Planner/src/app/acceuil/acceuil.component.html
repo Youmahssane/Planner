@@ -1,8 +1,124 @@
-<p>
-  <button nbButton (click)="test()">recuperer l'api</button>
-  <button nbButton (click)="bt2()">afficher</button>
+<div *ngIf="role.getRole().toString() === '1';" style="position:relative; float:right"><button  style="background-color: #2826a5;" nbbutton (click)="addVol()">+</button></div>
+<br><br><br>
+<div class="container">
+    <div class="row"  style="position:relative;Left:15px; width:104%" >  
+            <div class="col-9"> 
+            <nb-accordion>
+                    <nb-accordion-item>
+                            <nb-accordion-item-header>
+        <div class= "col">         
+          <h5>En vol ?</h5> 
+        </div>
+        <div class="col">
+         <h5> Vol</h5>
+        </div>
+        <div class="col">
+            <h5>Départ</h5>
+          </div>
+        <div class="col">
+              <h5>Arrivé</h5>
+        </div>
+        <div class="col">
+                <h5>Heure départ</h5>
+          </div>
+          <div class="col">
+                <h5>Heure Arrivé</h5>
+          </div>
+        <div class="col">
+             <h5> Latitude</h5>
+         </div>
     
-</p>
-<p>
-  <tr *ngFor="let item of infoAvion"> {{item}}</tr>
-</p>
+        </nb-accordion-item-header >
+    </nb-accordion-item>
+    </nb-accordion>
+   
+    </div>
+    <div class="col"></div>
+</div>
+            
+<div class="container">
+      <div class="row" *ngFor="let vol of allVol; let i = index">
+      <div class="col"> 
+               <nb-accordion>
+            <nb-accordion-item>
+        <nb-accordion-item-header (click)= "chooser(vol)" >
+          <div *ngIf="isFlying[vol.Id]; else content2;" class="col">   
+                <img  alt="Gone" src="https://img.icons8.com/material/50/000000/airplane-take-off.png">        
+          </div> 
+          <ng-template #content2> <div class="col"> <img alt="standBy"  src="https://img.icons8.com/material/50/000000/airplane-landing.png"> </div></ng-template>
+        
+          <div class="col"> {{this.vol.vol}} </div>
+           <div class="col"> {{this.vol.departure}}</div>  
+           <div class="col">{{this.vol.arrival}}</div> 
+           <div class="col">{{this.vol.heureDepart}}</div> 
+           <div class="col">{{this.vol.heureArr}}</div> 
+           <div class="col">{{this.vol.altitude}}</div>
+    
+          </nb-accordion-item-header>
+              <nb-accordion-item-body>
+                  <p>Progression du trajet </p>
+               <nb-progress-bar class="pb" [value]="tabValue[vol.Id]" [status]="status" [displayValue]="true"></nb-progress-bar>
+               <label><h2>Info Supplémentaire: </h2></label>
+               <table class="table">
+
+                    <tbody>
+                        <tr>
+                            <th scope="row">Type d'avion </th>    
+                            <td>{{this.allInfoSup[i].typeAvion}}</td>                                                                                  
+                        </tr>
+                        <tr>
+                            <th scope="row"> Pilote </th>    
+                            <td>{{this.allInfoSup[i].transporteur}}</td>     
+                        </tr>
+                        <tr>
+                        <th scope="row">Départ </th>    
+                        <td>{{this.allInfoSup[i].destination}}</td>                                                                                  
+                        </tr>
+                        <tr>
+                            <th scope="row">Altitude </th>    
+                            <td>{{this.allInfoSup[i].altitude}}</td>     
+                        </tr>
+                        <tr>
+                            <th scope="row">Vitesse</th>    
+                            <td>{{this.allInfoSup[i].vitesse}}</td>     
+                        </tr>
+                        <tr>
+                    <th scope="row">Orientation</th>    
+                    <td>{{this.allInfoSup[i].orientation}}</td>     
+                        </tr>
+                        <tr>
+                        <th scope="row">Distance</th>    
+                        <td>{{this.allInfoSup[i].distance}}</td>     
+                            </tr>
+                        <tr><th scope="row">Duree </th>    
+                            <td><div class="time-{{vol.Id}}"></div></td>     
+                             </tr>
+                              
+               </table>
+               
+                <h6>Jolie image d'avion :</h6>     <br><br>
+                <div class="row">
+
+                    <img src="/assets/Avion.jpg" style="width:400px; height: 250px"><img>
+                
+                 
+
+            </div>
+            </nb-accordion-item-body>
+          </nb-accordion-item>
+          </nb-accordion>
+                 
+        
+        </div>
+                        <div *ngIf="role.getRole().toString() === '1'; else content;"  class=".col-md-4">
+                        <button style="background-color:#5fdb93" nbbutton (click)="toCrud(vol,allInfoSup[i])" >Modifier</button>
+                        <button style="background-color:#ff0404" nbbutton  (click)="delete(vol)">Supprimer</button></div>     
+          
+            <ng-template #content >  <div  class=".col-md-4">     <button (click)="abbo(i)" style="background-color:darkred" nbbutton>s'abonner</button>  
+                <button style="visibility: hidden;" nbbutton>s'abonner</button>
+            </div></ng-template></div>       
+</div>
+  
+
+
+

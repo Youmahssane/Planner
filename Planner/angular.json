@@ -30,7 +30,10 @@
               "src/styles.scss",
               "node_modules/bootstrap/dist/css/bootstrap.css"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/jquery/dist/jquery.min.js",
+              "./node_modules/signalr/jquery.signalR.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -86,7 +89,9 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": [],
+            "scripts": [
+             
+            ],
             "assets": [
               "src/favicon.ico",
               "src/assets"

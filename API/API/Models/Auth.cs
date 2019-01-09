@@ -8,16 +8,15 @@ namespace API.Models
 {
     public class Auth
     {
-        [Key]
-        public int Id { get; set; }
-                    
+      public int id { get; set; }
         [Required]
-        public string userName { get; set; }
+        public string email { get; set; }
 
         [Required]
         public string password { get; set; }
 
-        [Required]
+
         public string role { get; set; }
     }
+
 }

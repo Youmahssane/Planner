@@ -1,0 +1,74 @@
+
+    <div class="container">
+      <div class="row justify-content-end"><button style="background-color:midnightblue" (click)="toAdd()" nbButton>+</button></div>
+        <div class="row" >
+         
+          <div class="col-9">
+              <table class="table">
+                  <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Id</th>
+                  <th scope="col">UserName</th>
+                  <th scope="col">password</th>
+                  <th scope="col">Role</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let user of users; index as i">
+                  <th scope="row">{{i}}</th>
+                  <td>{{user.email}}</td>
+                  <td>{{user.password}}</td>
+                  <td>{{user.role == "1" ? 'Admin':'Client'}}</td>
+                  <td>
+                      <button nbButton style="background-color:#5fdb93"  (click)="open(dialog,user)">Modifier</button>
+                    
+                    <button style="background-color:#ff0404"  (click)="DeleteUser(user)" nbbutton> Supprimer</button></td>
+                </tr>
+               
+              </tbody>
+            </table>
+
+          </div>
+
+     
+        </div>
+        <ng-template #dialog let-data let-ref="dialogRef">
+            <nb-card>
+              <nb-card-header>User : {{data.email}}</nb-card-header>
+             
+             
+             
+              <nb-card-body> 
+                <form [formGroup]="formClient">
+               
+                <div class="form-group1">
+                  <label >Email :</label>
+                  <input type="text" class="form-control" formControlName="email"  placeholder="{{data.email}}">
+                </div>
+                <div class="form-group1">
+                  <label>password:</label>
+                  <input type="text" class="form-control"  formControlName="password"  placeholder="{{data.password}}">
+                </div>
+                <div class="form-group1">
+                    <label >Role :</label>
+                    <nb-select   formControlName="role" placeholder="{{data.role == '1' ? 'Admin':'Client'}}" [(selected)]="selectedItem">
+                        <nb-option value="1">Admin</nb-option>
+                        <nb-option value="0">Client</nb-option>
+                   </nb-select>
+                  </div>
+                  </form>
+            
+                </nb-card-body>
+            
+            
+            
+            
+              <nb-card-footer>
+                      <button nbButton (click)="updateUser(data.id)">Update this User</button>
+                <button nbButton (click)="ref.close()">Close</button>
+          
+              </nb-card-footer>
+            </nb-card>
+          </ng-template>
+
+       
